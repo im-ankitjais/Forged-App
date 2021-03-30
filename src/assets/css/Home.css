@@ -30,6 +30,15 @@ a:active {
 .bg-navbar-custom{
 	background-color: #6210e1;
 }
+.bg-navbar-custom .navbar-brand{
+	color:#fff;
+}
+.bg-navbar-custom .navbar-nav{
+	color:#fff;
+}
+.bg-navbar-custom .nav-item{
+	color:#fff;
+}
 .iframe-bot{
 	width: 100%;
 	height: 550px;
@@ -129,6 +138,12 @@ a:active {
     border-color: #d034e6;
 	color: white;
 }
+/* .index-button>input{
+	background-color: unset;
+	font-size: 22px;
+	height: 100%;
+} */
+
 /* Header container */
 .header {
 	padding: 4rem 0;
