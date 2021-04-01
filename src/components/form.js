@@ -36,7 +36,6 @@ const Form = () => {
 
 	return (
 		<form>
-			<label htmlFor='file'>Upload</label>
 			<input type='file' id='file' onChange={handleInputChange} />
 		</form>
 	);

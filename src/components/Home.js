@@ -49,7 +49,9 @@ function Home(props) {
 									</a>
                                     
 								</div> */}
+							<div className="btn btn-primary index-button"  data-aos='fade-down' data-aos-delay='500'>
 								<Form />
+							</div>
 							</div>
 						</div>
 
@@ -86,7 +88,7 @@ function Home(props) {
 							</span>
 
 							<h2 class='mt-3'>
-								Create beautiful <u>biolink pages</u>
+								Get to know about forged images <br /><u>in seconds</u>
 							</h2>
 
 							<p class='mt-3'>
@@ -132,7 +134,7 @@ function Home(props) {
 								</svg>
 							</span>
 
-							<h2 class='mt-3'>Manage multiple projects</h2>
+							<h2 class='mt-3'>Manage to open on different platforms</h2>
 
 							<p class='mt-3'>
 								One project for you, one for your friend, one for your company.
@@ -177,7 +179,7 @@ function Home(props) {
 								</svg>
 							</span>
 
-							<h2 class='mt-3'>Biolinks & Shorted links</h2>
+							<h2 class='mt-3'>Get result by tagging our twitter Bot!</h2>
 
 							<p class='mt-3'>
 								Yes! You can use our service as a shortener as well.
@@ -221,7 +223,7 @@ function Home(props) {
 								</svg>
 							</span>
 
-							<h2 class='mt-3'>Bring creativity to life</h2>
+							<h2 class='mt-3'>Be aware of forgery happened recently.</h2>
 
 							<p class='mt-3'>
 								Add your own touch to your biolinks page with our editor and
@@ -254,7 +256,7 @@ function Home(props) {
 								</svg>
 							</span>
 
-							<h2 class='mt-3'>Day by day statistics</h2>
+							<h2 class='mt-3'>Write about forgery <br /> Display on our platform</h2>
 
 							<p class='mt-3'>
 								Get to know your audience with our detailed statistics and if

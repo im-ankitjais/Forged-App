@@ -10,10 +10,10 @@
     max-height: 300px;
 }
 .areaButton{
-    margin: 30px 0 0 0;
+    align-self: center;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     width: 200px;
     padding: 15px 30px;
@@ -21,8 +21,24 @@
     color: #fff;
     transition: 0.2s all ease-in-out;
 }
+.activeAnal{
+    background-color: #000;
+    color: #fff;
+}
+.nonActiveAnal{
+    background-color: rgb(165, 158, 158);
+    color: rgb(31, 28, 28);
+}
 .areaButton:hover{
     transform: scale(1.2);
+}
+.analzeSec{
+    margin: 30px 0;
+    display: flex;
+    align-self: center;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 .resultImageSec{
     display: flex;
