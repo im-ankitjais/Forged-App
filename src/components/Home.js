@@ -2,10 +2,25 @@ import React, { useContext } from "react";
 import "../assets/css/Home.css";
 import Navbar from "./Navbar";
 import { GlobalContext } from "./../context/reducer";
+import { useQuery, gql } from "@apollo/client";
 import Form from "./form";
+
+const FORGED_ARTICLES = gql`
+	{
+		posts {
+			title
+			content {
+				text
+			}
+		}
+	}
+`;
 
 function Home(props) {
 	const { dispatch } = useContext(GlobalContext);
+
+	// querying
+	const { loading, error, data } = useQuery(FORGED_ARTICLES);
 
 	return (
 		<div>

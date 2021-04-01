@@ -3,11 +3,20 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { BrowserRouter as Router } from "react-router-dom";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import reportWebVitals from "./reportWebVitals";
+
+const client = new ApolloClient({
+	uri:
+		"https://api-ap-northeast-1.graphcms.com/v2/ckmobu4nc56u501xmc0i9bpnz/master",
+	cache: new InMemoryCache(),
+});
 
 ReactDOM.render(
 	<Router>
-		<App />
+		<ApolloProvider client={client}>
+			<App />
+		</ApolloProvider>
 	</Router>,
 	document.querySelector("#root")
 );
