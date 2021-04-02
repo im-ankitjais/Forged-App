@@ -18,27 +18,37 @@ function Analyze() {
 
 	const handleAnalyze = () => {
 		setShowResultSec(true)
-		// axios("https://fcfd57e81fbd.ngrok.io/predict", {
-		// 	method: "POST",
-		// 	headers: {
-		// 		"Content-Type": "application/json",
-		// 	},
-		// 	data: { url: cloudImage },
-		// })
-		// .then(res => {
-			// console.log(res.data)
-			// var whtCent = (res.data.wht/(res.data.wht+res.data.blck)*100)
-			var whtCent = (672/(672+180201)*100).toFixed(2)
+		axios("https://bf99cbe508b9.ngrok.io/predict", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			data: { url: cloudImage },
+		})
+		.then(res => {
+			console.log(res.data)
+			var whtCent = (parseInt(res.data.wht)/parseInt((parseInt(res.data.wht)+(parseInt(res.data.blck.slice(0,5)))))*100)
+			console.log(res.data.wht)
+			console.log(res.data.blck)
+			console.log(res.data.blck.slice(0,4))
 			setResult({
-				"img2": "https://mantrap.s3-us-west-1.amazonaws.com/43529386-9320-11eb-a5b1-0242ac1c0002.png",
-				"img3": "https://mantrap.s3-us-west-1.amazonaws.com/435294ee-9320-11eb-a5b1-0242ac1c0002.png",
-				"img4": "https://mantrap.s3-us-west-1.amazonaws.com/435295ac-9320-11eb-a5b1-0242ac1c0002.png",
+				"img2": res.data.img2,
+				"img3": res.data.img3,
+				"img4": res.data.img4,
 				"wht": whtCent,
-				"blck": "180201"
-				
+				"blck": res.data.blck
 			})
-		// })
-		// .catch(err => alert('Currently API is Off.'))
+			// var whtCent = (672/(672+180201)*100).toFixed(2)
+			// setResult({
+			// 	"img2": "https://mantrap.s3-us-west-1.amazonaws.com/43529386-9320-11eb-a5b1-0242ac1c0002.png",
+			// 	"img3": "https://mantrap.s3-us-west-1.amazonaws.com/435294ee-9320-11eb-a5b1-0242ac1c0002.png",
+			// 	"img4": "https://mantrap.s3-us-west-1.amazonaws.com/435295ac-9320-11eb-a5b1-0242ac1c0002.png",
+			// 	"wht": whtCent,
+			// 	"blck": "180201"
+
+			// })
+		})
+		.catch(err => alert('Currently API is Off.'))
 	};
 
 	return (
