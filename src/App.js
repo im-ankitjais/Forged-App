@@ -2,7 +2,7 @@ import { Route } from "react-router-dom";
 import GlobalContextProvider from "./context/reducer";
 import "./App.css";
 import Home from "./components/Home";
-import Analyze from "./components/Analyze";
+import Analyze from "./components/AnalyzeTest";
 import ArticleList from "./components/ArticleList"
 import Blog from "./components/Blog";
 

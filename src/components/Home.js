@@ -2,29 +2,17 @@ import React, { useContext } from "react";
 import "../assets/css/Home.css";
 import Navbar from "./Navbar";
 import { GlobalContext } from "./../context/reducer";
-import { useQuery, gql } from "@apollo/client";
 import Form from "./form";
+import {Link} from "react-router-dom";
 import P1 from "../assets/images/P1.png"
 import P2 from "../assets/images/P2.png"
 import P3 from "../assets/images/P3.png"
 import P4 from "../assets/images/P4.png"
 import P5 from "../assets/images/P5.png"
-const FORGED_ARTICLES = gql`
-	{
-		posts {
-			title
-			content {
-				text
-			}
-		}
-	}
-`;
+
 
 function Home(props) {
 	const { dispatch } = useContext(GlobalContext);
-
-	// querying
-	// const { loading, error, data } = useQuery(FORGED_ARTICLES);
 
 	return (
 		<div>
@@ -47,15 +35,14 @@ function Home(props) {
 									proper statistics of your visitors.
 								</p>
 
-								{/* <div data-aos='fade-down' data-aos-delay='500'>
-									<a href='' class='btn btn-primary index-button'>
+								<div data-aos='fade-down' data-aos-delay='500'>
+									<Link to="/analyze" class='btn btn-primary index-button'>
 										Upload Image ⚡️
-									</a>
-                                    
-								</div> */}
-							<div className="btn btn-primary index-button"  data-aos='fade-down' data-aos-delay='500'>
+									</Link>
+								</div>
+							{/* <div className="btn btn-primary index-button"  data-aos='fade-down' data-aos-delay='500'>
 								<Form />
-							</div>
+							</div> */}
 							</div>
 						</div>
 
@@ -92,12 +79,13 @@ function Home(props) {
 							</span>
 
 							<h2 class='mt-3'>
-								Get to know about forged images <br /><u>in seconds</u>
+							Be aware of the forged images<br /><u>in seconds</u>
 							</h2>
 
 							<p class='mt-3'>
 							You can verify the morphed images by just uploading 
 it on our website or on our app.
+
 
 							</p>
 						</div>
@@ -139,11 +127,10 @@ it on our website or on our app.
 								</svg>
 							</span>
 
-							<h2 class='mt-3'>Manage to open on different platforms</h2>
+							<h2 class='mt-3'>You can reach to us through different platforms</h2>
 
 							<p class='mt-3'>
-								One project for you, one for your friend, one for your company.
-								One account is all you need.
+							You can find us at on our website , app and twitter 
 							</p>
 						</div>
 					</div>
@@ -184,10 +171,12 @@ it on our website or on our app.
 								</svg>
 							</span>
 
-							<h2 class='mt-3'>Get result by tagging our twitter Bot!</h2>
+							<h2 class='mt-3'>Easy results on our Twitter Bot</h2>
 
 							<p class='mt-3'>
-								Yes! You can use our service as a shortener as well.
+							You can tag our platform on twitter
+ and get immediate results 
+
 							</p>
 						</div>
 					</div>
@@ -228,11 +217,10 @@ it on our website or on our app.
 								</svg>
 							</span>
 
-							<h2 class='mt-3'>Be aware of forgery happened recently.</h2>
+							<h2 class='mt-3'>Be updated about the recent forgery.</h2>
 
 							<p class='mt-3'>
-								Add your own touch to your biolinks page with our editor and
-								stand out from the crowd.
+							You can get the latest news about forgery on our news section
 							</p>
 						</div>
 					</div>
@@ -261,11 +249,12 @@ it on our website or on our app.
 								</svg>
 							</span>
 
-							<h2 class='mt-3'>Write about forgery <br /> Display on our platform</h2>
+							<h2 class='mt-3'>Write to us</h2>
 
 							<p class='mt-3'>
-								Get to know your audience with our detailed statistics and if
-								those are not enough, you can even integrate Google Analytics.
+							You can put your thoughts into your blogs on 
+our blog section
+
 							</p>
 						</div>
 					</div>

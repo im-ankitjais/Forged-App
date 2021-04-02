@@ -9,28 +9,51 @@
     max-width: 600px;
     max-height: 300px;
 }
+.spinner-spc{
+    margin: 0 0 0 10px;
+    width: 1rem;
+    height: 1rem;
+}
 .areaButton{
     align-self: center;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     width: 200px;
     padding: 15px 30px;
     background-color: #000;
-    color: #fff;
     transition: 0.2s all ease-in-out;
 }
-.activeAnal{
-    background-color: #000;
+
+.btn {
     color: #fff;
-}
-.nonActiveAnal{
-    background-color: rgb(165, 158, 158);
-    color: rgb(31, 28, 28);
-}
-.areaButton:hover{
-    transform: scale(1.2);
+    background-color: #000;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .btn:hover {
+    color: #fff;
+    background-color: #000;
+  }
+  .upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    transition: 0.2s all ease-in-out;
+  }
+  .upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    border-radius: 8px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
+.upload-btn-wrapper:hover{
+    transform: scale(1.1);
 }
 .analzeSec{
     margin: 30px 0;

@@ -8,6 +8,7 @@ const Form = () => {
 
 	const uploadImage = async file => {
 		// dispatch({ type: "UPLOADING_IMAGE" });
+		dispatch({ type: "SET_LOADING" });
 
 		const formData = new FormData();
 		formData.append("file", file);
@@ -22,6 +23,7 @@ const Form = () => {
 		).then(res => res.json());
 
 		dispatch({ type: "SET_UPLOADED_IMAGE", payload: secure_url });
+		dispatch({ type: "SET_SUCCESS" });
 	};
 
 	const handleInputChange = e => {

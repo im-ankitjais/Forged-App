@@ -18,25 +18,27 @@ function Analyze() {
 
 	const handleAnalyze = () => {
 		setShowResultSec(true)
-		axios("https://bf99cbe508b9.ngrok.io/predict", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			data: { url: cloudImage },
-		})
-		.then(res => {
-			console.log(res.data)
-			var whtCent = (parseInt(res.data.wht)/parseInt((parseInt(res.data.wht)+(parseInt(res.data.blck.slice(0,5)))))*100)
-			console.log(res.data.wht)
-			console.log(res.data.blck)
-			console.log(res.data.blck.slice(0,4))
+		// axios("https://bf99cbe508b9.ngrok.io/predict", {
+		// 	method: "POST",
+		// 	headers: {
+		// 		"Content-Type": "application/json",
+		// 	},
+		// 	data: { url: cloudImage },
+		// })
+		// .then(res => {
+			var sum = (672+1802);
+			var whtCent = (parseInt(672/sum)*100)
+			// var sum = parseInt(res.data.wht)+parseInt(parseInt(res.data.blck.slice(0,4)))
+			// var whtCent = (parseInt(res.data.wht)/sum)*100
+			console.log(sum)
+			console.log(whtCent)
+			// console.log(parseInt(res.data.blck.slice(0,4)))
 			setResult({
-				"img2": res.data.img2,
-				"img3": res.data.img3,
-				"img4": res.data.img4,
+				// "img2": res.data.img2,
+				// "img3": res.data.img3,
+				// "img4": res.data.img4,
 				"wht": whtCent,
-				"blck": res.data.blck
+				// "blck": res.data.blck
 			})
 			// var whtCent = (672/(672+180201)*100).toFixed(2)
 			// setResult({
@@ -47,8 +49,8 @@ function Analyze() {
 			// 	"blck": "180201"
 
 			// })
-		})
-		.catch(err => alert('Currently API is Off.'))
+		// })
+		// .catch(err => alert('Currently API is Off.'))
 	};
 
 	return (

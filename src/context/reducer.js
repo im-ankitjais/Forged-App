@@ -3,38 +3,48 @@ export const GlobalContext = createContext();
 
 const ContextProvider = ({ children }) => {
 	const INITIAL_STATE = {
+		imageUploadLoading:false,
+		imageUploadSuccess:false,
 		cloudImage: null,
-		results: null,
-		loading: false,
-		imageUploaded: false,
+		imageAnalyzeLoading:false,
+		imageAnalyzeSuccess:false,
+		analyzeResult: null,
 		showAlert: false,
 	};
 
 	const Reducer = (state, action) => {
 		switch (action.type) {
-			// case "UPLOADING_IMAGE":
-			// 	return { ...state, imageUploaded: true };
-
+			case "SET_UPLOAD_LOADING":
+				return { ...state, imageUploadLoading: true, imageUploadSuccess:false };
+			case "SET_UPLOAD_SUCCESS":
+				return { ...state, imageUploadLoading: false, imageUploadSuccess:true };
+			case "SET_ANALYZE_LOADING":
+				return { ...state, imageAnalyzeLoading: true, imageAnalyzeSuccess:false };
+			case "SET_ANALYZE_SUCCESS":
+				return { ...state, imageAnalyzeLoading: false, imageAnalyzeSuccess:true };
 			case "SET_UPLOADED_IMAGE":
 				return {
 					...state,
 					cloudImage: action.payload,
 				};
-
-			case "IMAGE_UPLOADED":
-				return { ...state, imageUploaded: true };
-
+			case "SET_IMAGE_RESULT":
+				return {
+					...state,
+					result: action.payload,
+				};
 			case "SHOW_ALERT":
-				return { ...state, showAlert: !state.showAlert };
-
+				return { ...state, showAlert: !state.showAlert,imageUploadLoading:false,imageAnalyzeLoading:false,imageAnalyzeSuccess:true };
 			case "INIT":
 				return {
 					...state,
+					imageUploadLoading:false,
+					imageUploadSuccess:false,
 					cloudImage: null,
-					results: null,
-					imageUploaded: false,
+					imageAnalyzeLoading:false,
+					imageAnalyzeSuccess:false,
+					analyzeResult: null,
+					showAlert: false,
 				};
-
 			default:
 				return state;
 		}
