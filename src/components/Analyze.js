@@ -8,6 +8,8 @@ import Skeleton from 'react-loading-skeleton';
 function Analyze() {
 	const { cloudImage, dispatch } = useContext(GlobalContext);
 	const [showResultSec,setShowResultSec] = useState(false);
+	const [result,setResult] = useState({});
+
 	useEffect(() => {
 		return () => {
 			dispatch({ type: "INIT" });
@@ -16,14 +18,36 @@ function Analyze() {
 
 	const handleAnalyze = () => {
 		setShowResultSec(true)
-		axios("https://fcfd57e81fbd.ngrok.io/predict", {
+		axios("https://bf99cbe508b9.ngrok.io/predict", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
 			},
 			data: { url: cloudImage },
 		})
-		.then(res => console.log(res))
+		.then(res => {
+			console.log(res.data)
+			var whtCent = (parseInt(res.data.wht)/parseInt((parseInt(res.data.wht)+(parseInt(res.data.blck.slice(0,5)))))*100)
+			console.log(res.data.wht)
+			console.log(res.data.blck)
+			console.log(res.data.blck.slice(0,4))
+			setResult({
+				"img2": res.data.img2,
+				"img3": res.data.img3,
+				"img4": res.data.img4,
+				"wht": whtCent,
+				"blck": res.data.blck
+			})
+			// var whtCent = (672/(672+180201)*100).toFixed(2)
+			// setResult({
+			// 	"img2": "https://mantrap.s3-us-west-1.amazonaws.com/43529386-9320-11eb-a5b1-0242ac1c0002.png",
+			// 	"img3": "https://mantrap.s3-us-west-1.amazonaws.com/435294ee-9320-11eb-a5b1-0242ac1c0002.png",
+			// 	"img4": "https://mantrap.s3-us-west-1.amazonaws.com/435295ac-9320-11eb-a5b1-0242ac1c0002.png",
+			// 	"wht": whtCent,
+			// 	"blck": "180201"
+
+			// })
+		})
 		.catch(err => alert('Currently API is Off.'))
 	};
 
@@ -49,12 +73,39 @@ function Analyze() {
 			{showResultSec && (
 				<div className='col resultImageSec'>
 				<div className='areaResultTitle'>Result</div>
-				{/* <img
-					className='areaResult'
-					src='https://res.cloudinary.com/dhqp2dd6b/image/upload/v1617005792/image-processing/rbapfgdji4um4gzxv3ly.gif'
-					alt=''
-				/> */}
-				<Skeleton width={400} height={300} color="#202020" highlightColor="#444" />
+				<div className="container m-0 p-0">
+					<div className="row m-0 p-0">
+						<div className="col-12 resultContainer">
+							<span className="resultLabel">Output : Our Forged App analyzed the image and predicted that <b>{result.wht}%</b> of the region is morphed(edited) which is shown in white region.</span>
+						</div>
+						<div className="col-12 col-md-4 m-0 p-0 resultContainer">
+							<img
+								className='areaResult'
+								src={result.img2}
+								alt=''
+							/>
+							<span className="resultLabel">Original Image (App Input)</span>
+						</div>
+						<div className="col-12 col-md-4 m-0 p-0 resultContainer">
+							<img
+								className='areaResult'
+								src={result.img3}
+								alt=''
+							/>
+							<span className="resultLabel">Predicted Mask(App Output)</span>
+
+						</div>
+						<div className="col-12 col-md-4 m-0 p-0 resultContainer">
+							<img
+								className='areaResult'
+								src={result.img4}
+								alt=''
+							/>
+							<span className="resultLabel">Highlighted Forged Region</span>
+						</div>
+					</div>
+				</div>
+				<Skeleton width={700} height={300} color="#202020" highlightColor="#444" />
 			</div>
 			) }
 		</div>

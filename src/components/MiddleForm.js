@@ -15,7 +15,7 @@ const MiddleForm = () => {
     const postSubscribe = async  (e) => {
         e.preventDefault();
        
-        axios.post(`https://pennystocksmailchimp.herokuapp.com/subscribe`,{
+        axios.post(`https://forged-app-mailchimp.herokuapp.com/subscribe`,{
             email:email
         },{
             headers:{
@@ -44,7 +44,7 @@ const MiddleForm = () => {
                     <div className="col-sm-12">
                         <form onSubmit={postSubscribe}>
                         <div className="single">
-                            <h5> Subscribe Now and get a e-Book for free.</h5>
+                            <h5> Subscribe now to get latest notifications.</h5>
                             <div className="input-group">
                                 <input type="email" className="form-control" value={email} onChange={e => setEmail(e.target.value)} placeholder="Enter your email" />
                                 <span className="input-group-btn">

@@ -1,10 +1,12 @@
 import React from 'react'
 
-function BottomDetail() {
+function BottomDetail(props) {
+    const {item} = props;
+    // console.log(item.publishedAt)
     return (
         <div className="row bottom_deatils">
             <div className="col-8 p-0 m-0">
-                <span className="botton_author_date">12/12/2012</span>
+                <span className="botton_author_date">{item.publishedAt.slice(0,10)}</span>
                 <br />
             </div>
             <div className="col-4 text-right all_more_button">    

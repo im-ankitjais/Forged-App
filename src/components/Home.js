@@ -4,7 +4,11 @@ import Navbar from "./Navbar";
 import { GlobalContext } from "./../context/reducer";
 import { useQuery, gql } from "@apollo/client";
 import Form from "./form";
-
+import P1 from "../assets/images/P1.png"
+import P2 from "../assets/images/P2.png"
+import P3 from "../assets/images/P3.png"
+import P4 from "../assets/images/P4.png"
+import P5 from "../assets/images/P5.png"
 const FORGED_ARTICLES = gql`
 	{
 		posts {
@@ -20,7 +24,7 @@ function Home(props) {
 	const { dispatch } = useContext(GlobalContext);
 
 	// querying
-	const { loading, error, data } = useQuery(FORGED_ARTICLES);
+	// const { loading, error, data } = useQuery(FORGED_ARTICLES);
 
 	return (
 		<div>
@@ -92,14 +96,15 @@ function Home(props) {
 							</h2>
 
 							<p class='mt-3'>
-								Create and manage multiple Biolink Pages for your team from a
-								single dashboard.
+							You can verify the morphed images by just uploading 
+it on our website or on our app.
+
 							</p>
 						</div>
 					</div>
 					<div class='col-md-6'>
 						<img
-							src='https://linksinb.io/themes/altum/assets/images/presentation.png'
+							src={P1}
 							class='img-fluid'
 						/>
 					</div>
@@ -110,7 +115,7 @@ function Home(props) {
 				<div class='row'>
 					<div class='col-md-6'>
 						<img
-							src='https://linksinb.io/themes/altum/assets/images/presentation2.png'
+							src={P2}
 							class='img-fluid'
 						/>
 					</div>
@@ -188,7 +193,7 @@ function Home(props) {
 					</div>
 					<div class='col-md-6'>
 						<img
-							src='https://linksinb.io/themes/altum/assets/images/presentation3.png'
+							src={P3}
 							class='img-fluid'
 						/>
 					</div>
@@ -199,7 +204,7 @@ function Home(props) {
 				<div class='row'>
 					<div class='col-md-6'>
 						<img
-							src='https://linksinb.io/themes/altum/assets/images/presentation4.png'
+							src={P4}
 							class='img-fluid'
 						/>
 					</div>
@@ -266,7 +271,7 @@ function Home(props) {
 					</div>
 					<div class='col-md-6'>
 						<img
-							src='https://linksinb.io/themes/altum/assets/images/presentation5.png'
+							src={P5}
 							class='img-fluid'
 						/>
 					</div>
