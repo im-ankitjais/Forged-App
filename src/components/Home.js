@@ -20,7 +20,7 @@ function Home(props) {
 	const { dispatch } = useContext(GlobalContext);
 
 	// querying
-	const { loading, error, data } = useQuery(FORGED_ARTICLES);
+	// const { loading, error, data } = useQuery(FORGED_ARTICLES);
 
 	return (
 		<div>

@@ -45,12 +45,22 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 40px;
 }
 .areaResultTitle{
     font-size: 22px;
     color: #000;
 }
 .areaResult{
-    margin: 30px 200px;
+    /* margin: 30px 200px; */
+    width: 100%;
+}
+.resultContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+}
+.resultLabel{
+    text-align: center;
 }

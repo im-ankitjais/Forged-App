@@ -13,7 +13,7 @@ function App() {
 				<Route exact path='/' component={Home} />
 				<Route path='/analyze' component={Analyze} />
 				<Route path='/article' component={ArticleList} />
-				<Route path='/blog' component={Blog} />
+				<Route path='/blog/:id' component={Blog} />
 			</GlobalContextProvider>
 		</div>
 	);

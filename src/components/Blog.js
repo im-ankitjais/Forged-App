@@ -1,13 +1,62 @@
-import React from 'react'
+import React, {useContext,useEffect} from 'react'
 import '../assets/css/Blog.css'
 import singleLogo from '../assets/images/single-logo.png'
 import playButton from '../assets/images/play-button.svg'
 import RightNav from './RightNav';
 import MiddleForm from './MiddleForm'
+import { GlobalContext } from "./../context/reducer";
+import { useQuery, gql } from "@apollo/client";
+import $ from "jquery";
 
+const FORGED_SPECIFIC_ARTICLE = gql`
+{
+  post(where: {id: "ckmz8im7s50rq0b35idotzw6y"}) {
+    content {
+      html
+    }
+    title
+    slug
+    id
+    excerpt
+    coverImage {
+      url
+    }
+    createdAt
+    publishedAt
+    publishedBy {
+      name
+    }
+  }
+}
+`;
 const Blog = ({match}) => {
-  
+  const { dispatch } = useContext(GlobalContext);
+  const id = match.params.id;
+
+	// querying
+	const { loading, error, data } = useQuery(FORGED_SPECIFIC_ARTICLE,{
+    variables:{id}
+  });
+  console.log(data)
+  console.log(id)
+
+  useEffect(() => {
+    $(".blog_content  h1").addClass("blog_content_head");
+    $(".blog_content  h2").addClass("blog_content_head");
+    $(".blog_content  h3").addClass("blog_content_head");
+    $(".blog_content  h4").addClass("blog_content_head");
+    $(".blog_content  h5").addClass("blog_content_head");
+    $(".blog_content  h6").addClass("blog_content_head");
+    $(".blog_content  p").addClass("blog_content_para");
+    $(".blog_content  figcaption").addClass("blog_content_figcaption");
+    $(".blog_content  a").addClass("blog_content_para blog_content_link");
+    $(".blog_content  blockquote").addClass("blog_content_quote");
+    $(".blog_content  img").addClass("blog_content_img");
+    $(".blog_content  ul").addClass("blog_content_ul");
+   
+  }, [data])
 // if(blogData.isLoaded){
+  if(data){
     return(
         <div className="blog_contain">
             <RightNav />
@@ -23,8 +72,8 @@ const Blog = ({match}) => {
             </div>
             <div className="blog">
             <div className="title w-100">
-                <h1 className="blog_title">LTNC, DD & the Reason Behind The Rise in Stock Price</h1>
-                <p className="blog_excerpt">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique laboriosam, placeat quod nisi explicabo ipsa aut adipisci ut nesciunt est? Voluptatum perferendis commodi blanditiis non fugit, ut quidem incidunt sapiente!</p>
+                <h1 className="blog_title">{data.post.title}</h1>
+                <p className="blog_excerpt">{data.post.excerpt}</p>
                 <span className="blog_start_effect"></span>
                 <div className="blog_detail d-flex">
                     <p>
@@ -35,23 +84,21 @@ const Blog = ({match}) => {
                     </p>
                 </div>
                 <div className="blog_fea_img">
-                  <div style={{backgroundImage:`url(https://pennystocks.today/wpi/wp-content/uploads/2021/03/LABOR-WORKERS.jpg)`}} className="collect_img background_size">
+                  <div style={{backgroundImage:`url(${data.post.coverImage.url})`}} className="collect_img background_size">
                   </div>
                 </div>
             </div>
 
-            <div className="blog_content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus illum atque soluta corporis vitae, porro recusandae accusantium nostrum doloremque deserunt accusamus amet sapiente ipsum aut odio saepe ullam voluptatem? Accusamus?
-            </div>
+            <div className="blog_content" dangerouslySetInnerHTML={{__html:data.post.content.html}}></div>
           </div>
           <MiddleForm />
         </div>
     )
 }
-{/* else{
+else{
     return(
-         <Loading />
+        <>ll</>
     )
-} */}
-{/* } */}
-
-export default Blog;
+}
+}
+export default Blog
