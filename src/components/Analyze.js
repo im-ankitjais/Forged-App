@@ -35,6 +35,7 @@ function Analyze() {
 				"img4": "https://mantrap.s3-us-west-1.amazonaws.com/435295ac-9320-11eb-a5b1-0242ac1c0002.png",
 				"wht": whtCent,
 				"blck": "180201"
+				
 			})
 		// })
 		// .catch(err => alert('Currently API is Off.'))
