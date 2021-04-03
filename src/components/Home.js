@@ -25,7 +25,7 @@ function Home() {
 			<div class='index-container'>
 				<div class='p-0 m-0'>
 					<div class='row p-0 m-0'>
-						<div class='col-12 col-md-6 p-3 m-0'>
+						<div class='col-12 col-lg-6 p-3 m-0'>
 							<div class='text-left dis'>
 								<h1 class='index-header mb-4' data-aos='fade-down'>
 									Unmask Forgery,
@@ -54,22 +54,22 @@ function Home() {
 									onClick={() =>
 										scrollToEl.current.scrollIntoView({ behavior: "smooth" })
 									}>
-									Test with Sample Images
+									Or <u>Test with Sample Images</u>
 								</p>
 							</div>
 						</div>
 
-						<div class='col-12 col-md-6 p-0 m-0'>
+						<div class='col-12 col-lg-6 p-0 m-0'>
 							<iframe
 								class='iframe-bot'
-								src='https://my.spline.design/botcopy-479e7dd6623f438262b549ee4b31b885/'
+								src='https://my.spline.design/3dbot-ccba3cc9203c36c039d292d4d338ef2f/'
 								frameborder='0'></iframe>
 						</div>
 					</div>
 				</div>
 			</div>
-
-			<div class='container sec2'>
+			<div className="sec2">
+			<div class='container'>
 				<div class='row'>
 					<div class='col-md-6 d-flex align-items-center'>
 						<div>
@@ -226,6 +226,7 @@ function Home() {
 						</div>
 					</div>
 				</div>
+			</div>
 			</div>
 			<div className='col-12 sample-image-container' ref={scrollToEl}>
 				<h3 style={{textTransform:'capitalize'}}>Choose any sample image to test forged app</h3>

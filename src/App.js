@@ -5,7 +5,7 @@ import Home from "./components/Home";
 import Analyze from "./components/AnalyzeTest";
 import ArticleList from "./components/ArticleList";
 import Blog from "./components/Blog";
-import Preview from "./components/preview";
+import Preview from "./components/Preview";
 
 function App() {
 	return (
@@ -13,7 +13,7 @@ function App() {
 			<GlobalContextProvider>
 				<Route exact exact path='/' component={Home} />
 				<Route exact path='/analyze' component={Analyze} />
-				<Route exact path='/preview/:ids' component={Preview} />
+				<Route exact path='/preview/:id' component={Preview} />
 				<Route exact path='/news' component={ArticleList} />
 				<Route exact path='/news/:id' component={Blog} />
 			</GlobalContextProvider>
