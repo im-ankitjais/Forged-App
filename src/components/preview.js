@@ -10,6 +10,7 @@ const Preview = ({ match }) => {
 	const twitterId = match.params.id;
 	const [link,setLink] = useState('');
 	useEffect(() => {
+		
 		dispatch({ type: "SET_UPLOAD_LOADING" });
 		setLink(`https://pbs.twimg.com/media/${twitterId}.jpg?format=jpg&name=orig`)
 	},[twitterId])
