@@ -227,7 +227,7 @@ it on our website or on our app.
 				</div>
 			</div>
 
-			<div class='container margin-top-9'>
+			{/* <div class='container margin-top-9'>
 				<div class='row'>
 					<div class='col-md-6 d-flex align-items-center'>
 						<div>
@@ -265,7 +265,7 @@ our blog section
 						/>
 					</div>
 				</div>
-			</div>
+			</div> */}
 		</div>
 	);
 }
