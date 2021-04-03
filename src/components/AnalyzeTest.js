@@ -6,6 +6,8 @@ import { GlobalContext } from "./../context/reducer";
 import Skeleton from 'react-loading-skeleton';
 import Upload from "../assets/images/upload.png"
 import axios from "axios"
+import $ from "jquery";
+
 function AnalyzeTest() {
 	const  {
 		imageUploadLoading,
@@ -52,7 +54,7 @@ function AnalyzeTest() {
     const handleAnalyze = () => {
 		setShowResultSec(true)
 		dispatch({ type: "SET_ANALYZE_LOADING" });
-		window.scrollTo(0,document.body.scrollHeight);
+		window.scrollTo({ left: 0, top: document.body.scrollHeight, behavior: "smooth" });
 		axios(`${process.env.REACT_APP_ANALYZE_API}`, {
 			method: "POST",
 			headers: {
