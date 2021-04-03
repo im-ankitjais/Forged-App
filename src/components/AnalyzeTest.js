@@ -51,7 +51,7 @@ function AnalyzeTest() {
     const handleAnalyze = () => {
 		setShowResultSec(true)
 		dispatch({ type: "SET_ANALYZE_LOADING" });
-		axios(`http://3a542f9c397a.ngrok.io/predict`, {
+		axios(`https://3a542f9c397a.ngrok.io/predict`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
