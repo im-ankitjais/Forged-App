@@ -25,7 +25,6 @@ function AnalyzeTest() {
 		};
 	}, [dispatch]);
 	const uploadImage = async file => {
-		// dispatch({ type: "UPLOADING_IMAGE" });
 		dispatch({ type: "SET_UPLOAD_LOADING" });
 
 		const formData = new FormData();
@@ -45,7 +44,6 @@ function AnalyzeTest() {
 		const file = e.target.files[0];
 		if (!file) return;
 		uploadImage(file);
-		// history.push("/analyze");
 	};
 
     const handleAnalyze = () => {
@@ -59,29 +57,26 @@ function AnalyzeTest() {
 			data: { url: cloudImage },
 		})
 		.then(res => {
-			// var sum = parseInt(res.data.wht)+parseInt(parseInt(res.data.blck.slice(0,4)))
-			// var whtCent = (parseInt(res.data.wht)/sum)*100
-			// console.log(sum)
-			// console.log(whtCent)
-			// console.log(parseInt(res.data.blck.slice(0,4)))
+			var white=parseInt(res.data.wht)
+			var black=parseInt(res.data.blck)
+			var sum=white+black
+			var cent=((white/sum)*100).toFixed(3)
 			setResult({
 				"img2": res.data.img2,
 				"img3": res.data.img3,
 				"img4": res.data.img4,
 				"wht": res.data.wht,
-				"blck": res.data.blck
+				"blck": res.data.blck,
+				manipulatedCent:cent
 			})
-			console.log(analyzeResult)
-			// dispatch({ type: "SET_IMAGE_RESULT", payload: res.data });
 			dispatch({ type: "SET_ANALYZE_SUCCESS" });
 			dispatch({ type: "INIT" });
 		})
 		.catch(err => {
 			setShowResultSec(false)
 			console.log(err)
-			alert('Currently we have closed the machine learning API, due to limited amount of GPU EC2 instance Avilability,we are saving it for the Demo day.')
+			alert('Currently we have closed the machine learning API, due to limited amount of GPU EC2 instance avilability. We are saving it for the Demo day.')
 			dispatch({ type: "SHOW_ALERT" });
-
 		})
 	};
 	console.log(analyzeResult)
@@ -134,7 +129,7 @@ function AnalyzeTest() {
 					{imageAnalyzeSuccess ? (
 						<div className="row m-0 p-0">
 						<div className="col-12 resultContainer">
-							<span className="resultLabel">Output : Our Forged App analyzed the image and predicted that <b>{result?.wht}%</b> of the region is morphed(edited) which is shown in white region.</span>
+							<span className="resultLabel">Output : Our Forged App analyzed the image and predicted that <b>{result?.manipulatedCent}%</b> of the region is morphed(edited) which is shown in white region.</span>
 						</div>
 						<div className="col-12 col-md-4 m-0 p-0 resultContainer">
 							<img
