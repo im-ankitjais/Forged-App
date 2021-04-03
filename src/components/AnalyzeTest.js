@@ -24,6 +24,9 @@ function AnalyzeTest() {
 			dispatch({ type: "INIT" });
 		};
 	}, [dispatch]);
+	useEffect(() => {
+		window.scrollTo(0, 0)
+	}, [])
 	const uploadImage = async file => {
 		dispatch({ type: "SET_UPLOAD_LOADING" });
 
@@ -49,6 +52,7 @@ function AnalyzeTest() {
     const handleAnalyze = () => {
 		setShowResultSec(true)
 		dispatch({ type: "SET_ANALYZE_LOADING" });
+		window.scrollTo(0,document.body.scrollHeight);
 		axios(`${process.env.REACT_APP_ANALYZE_API}`, {
 			method: "POST",
 			headers: {
