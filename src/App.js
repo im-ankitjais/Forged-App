@@ -5,7 +5,7 @@ import Home from "./components/Home";
 import Analyze from "./components/AnalyzeTest";
 import ArticleList from "./components/ArticleList";
 import Blog from "./components/Blog";
-import Preview from "./components/Preview";
+import Preview from "./components/preview";
 
 function App() {
 	return (
