@@ -1,18 +1,14 @@
 import React, { useContext } from "react";
 import "../assets/css/Home.css";
 import Navbar from "./Navbar";
-import { GlobalContext } from "./../context/reducer";
-import Form from "./form";
 import {Link} from "react-router-dom";
 import P1 from "../assets/images/P1.png"
 import P2 from "../assets/images/P2.png"
 import P3 from "../assets/images/P3.png"
 import P4 from "../assets/images/P4.png"
-import P5 from "../assets/images/P5.png"
 
 
-function Home(props) {
-	const { dispatch } = useContext(GlobalContext);
+function Home() {
 
 	return (
 		<div>
@@ -36,13 +32,10 @@ function Home(props) {
 								</p>
 
 								<div data-aos='fade-down' data-aos-delay='500'>
-									<Link to="/analyze" class='btn btn-primary index-button'>
+									<Link to="/analyze" class='index-button'>
 										Upload Image ⚡️
 									</Link>
 								</div>
-							{/* <div className="btn btn-primary index-button"  data-aos='fade-down' data-aos-delay='500'>
-								<Form />
-							</div> */}
 							</div>
 						</div>
 
@@ -56,7 +49,7 @@ function Home(props) {
 				</div>
 			</div>
 
-			<div class='container'>
+			<div class='container sec2'>
 				<div class='row'>
 					<div class='col-md-6 d-flex align-items-center'>
 						<div>
@@ -226,46 +219,6 @@ it on our website or on our app.
 					</div>
 				</div>
 			</div>
-
-			{/* <div class='container margin-top-9'>
-				<div class='row'>
-					<div class='col-md-6 d-flex align-items-center'>
-						<div>
-							<span class='fa-stack fa-2x'>
-								<svg
-									width='62'
-									height='62'
-									viewBox='0 0 62 62'
-									fill='none'
-									xmlns='http://www.w3.org/2000/svg'>
-									<path
-										d='M0 0H41C52.598 0 62 9.40202 62 21V62H21C9.40202 62 0 52.598 0 41V0Z'
-										fill='#9B51E0'
-									/>
-									<path
-										d='M43 31C42.6394 31.0026 42.2822 31.0702 41.9455 31.1995L38.3485 28.255C38.437 27.934 38.5 27.601 38.5 27.25C38.5 25.171 36.829 23.5 34.75 23.5C32.671 23.5 31 25.171 31 27.25C31 27.844 31.15 28.3975 31.393 28.8955L27.0295 34.0525C26.8548 34.0198 26.6777 34.0022 26.5 34C26.2315 34 25.978 34.045 25.732 34.111L21.8875 30.2665C21.955 30.022 22 29.7685 22 29.5C22 27.838 20.662 26.5 19 26.5C17.338 26.5 16 27.838 16 29.5C16 31.162 17.338 32.5 19 32.5C19.2685 32.5 19.522 32.455 19.768 32.389L23.6125 36.2335C23.5404 36.4827 23.5025 36.7406 23.5 37C23.5 38.662 24.838 40 26.5 40C28.162 40 29.5 38.662 29.5 37C29.5 36.6445 29.428 36.31 29.3155 35.9935L33.685 30.8305C34.0255 30.9295 34.378 31 34.75 31C35.342 30.9967 35.9246 30.8522 36.4495 30.5785L40.048 33.523C40.0198 33.6805 40.0037 33.84 40 34C40 35.662 41.338 37 43 37C44.662 37 46 35.662 46 34C46 32.338 44.662 31 43 31Z'
-										fill='white'
-									/>
-								</svg>
-							</span>
-
-							<h2 class='mt-3'>Write to us</h2>
-
-							<p class='mt-3'>
-							You can put your thoughts into your blogs on 
-our blog section
-
-							</p>
-						</div>
-					</div>
-					<div class='col-md-6'>
-						<img
-							src={P5}
-							class='img-fluid'
-						/>
-					</div>
-				</div>
-			</div> */}
 		</div>
 	);
 }

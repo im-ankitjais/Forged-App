@@ -130,7 +130,7 @@ function AnalyzeTest() {
 			{showResultSec && (
 				<div className='col resultImageSec'>
 				<div className='areaResultTitle'>Result</div>
-				<div className="container m-0 p-0">
+				<div className="container centerDiv m-0 p-0">
 					{imageAnalyzeSuccess ? (
 						<div className="row m-0 p-0">
 						<div className="col-12 resultContainer">

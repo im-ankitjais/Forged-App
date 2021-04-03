@@ -10,10 +10,10 @@ function App() {
 	return (
 		<div className='App'>
 			<GlobalContextProvider>
-				<Route exact path='/' component={Home} />
-				<Route path='/analyze' component={Analyze} />
-				<Route path='/article' component={ArticleList} />
-				<Route path='/blog/:id' component={Blog} />
+				<Route exact exact path='/' component={Home} />
+				<Route exact path='/analyze' component={Analyze} />
+				<Route exact path='/news' component={ArticleList} />
+				<Route exact path='/news/:id' component={Blog} />
 			</GlobalContextProvider>
 		</div>
 	);

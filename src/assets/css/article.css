@@ -175,6 +175,21 @@
     font-size: 130%;
     margin: 0px 0 0 7px;
   }
+  .newsLoading{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  }
+  .loaderImg{
+    animation: rotateLogo 2s linear infinite;
+  }
+  @keyframes rotateLogo{
+    from{ transform: rotate(0deg);}
+    to{transform: rotate(360deg);}
+  }
+  
 @media(max-width:768px){
 .main_news h3{
     font-size: 21px;

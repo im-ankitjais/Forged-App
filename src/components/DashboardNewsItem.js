@@ -8,7 +8,7 @@ const DashboardNewsItem = (props) => {
     return(
       <>
       {moreItems.map(item => (
-        <Link to={`/blog/${item.id}`}>
+        <Link to={`/news/${item.id}`}>
           <div className="item d-flex">
             <div className="col-4 p-0">
               <div style={{backgroundImage:`url(${item.coverImage.url})`}} className="item_img background_size">

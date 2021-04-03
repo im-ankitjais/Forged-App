@@ -1,4 +1,4 @@
-import React,{useContext} from 'react'
+import React,{useEffect,useContext} from 'react'
 import BottomDetail from "./BottomDetail"
 import {Link} from "react-router-dom"
 import Navbar from "./Navbar"
@@ -7,6 +7,7 @@ import DashboardNewsItem from './DashboardNewsItem'
 import RightNav from './RightNav'
 import { GlobalContext } from "./../context/reducer";
 import { useQuery, gql } from "@apollo/client";
+import Loader from './Loader'
 const FORGED_ARTICLES = gql`
 {
   posts{
@@ -25,17 +26,16 @@ const FORGED_ARTICLES = gql`
 
 function Articles() {
   const { dispatch } = useContext(GlobalContext);
-
-	// querying
 	const { loading, error, data } = useQuery(FORGED_ARTICLES);
-  console.log(data)
-  if(data){
+  useEffect(() => {
+		window.scrollTo(0, 0)
+	}, [])
     return (
         <div>
           <Navbar />
           <RightNav />
-
-          <div className="row p-0 m-0">
+          {data ? (
+            <div className="row p-0 m-0">
           <div className="col-12 col-md-1 p-0 m-0"></div>
           <div className="col-12 col-md-11 p-0 m-0">
           <div className="top_head">
@@ -60,39 +60,26 @@ function Articles() {
             <h1>MORE NEWS</h1>
             </div>
           <DashboardNewsItem moreItems={data.posts.slice(2)}  /> 
-              {/* {loadDisable?(
-                <div className={loadDisable?"collection_section_load":"collection_section_load show_out_stock"}>
-              <p>End of list</p>
-            </div>
-              ):(
-            <div className="collection_section_load text-right">
-            <button onClick={loadMoreInfinite} className="bottom_button">Load More</button>
-            {infinitedata.isLoaded?(<div></div>):(
-              <Loading />
-            )}
-            </div>  
-              )} */}
           </div>
         </div>
         }
         </div>
         </div>
+          ):(
+            <div className="newsLoading"><Loader /></div>
+          )}
+          
         </div>
-    )
-    }
-    else{
-      return(
-        <></>
-      )
-    }
+  )
 }
+
 
 export default Articles
 
 const TopArticle = (props) => {
     const {item} = props; 
     return  (
-        <Link to={`/blog/${item.id}`}>
+        <Link to={`/news/${item.id}`}>
           <div className="main_news">
             <div style={{backgroundImage:`url(${item.coverImage.url})`}} className="top_img_div background_size">
             </div>
@@ -109,7 +96,7 @@ const ArticleBox = (props) => {
     return  (
       <>
       {items.map(item => (
-        <Link to={`/blog/${item.id}`}>
+        <Link to={`/news/${item.id}`}>
           <div className="item d-flex">
             <div className="col-4 p-0">
               <div style={{backgroundImage:`url(${item.coverImage.url})`}} className="item_img background_size">
