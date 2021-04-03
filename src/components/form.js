@@ -2,6 +2,8 @@ import { useHistory } from "react-router-dom";
 import { GlobalContext } from "./../context/reducer";
 import { useContext } from "react";
 
+import Uploader from "../cloudinary";
+
 const Form = () => {
 	const history = useHistory();
 	const { dispatch } = useContext(GlobalContext);

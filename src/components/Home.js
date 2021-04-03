@@ -1,15 +1,24 @@
-import React, { useContext } from "react";
+import React, { useEffect,useContext, useRef } from "react";
 import "../assets/css/Home.css";
 import Navbar from "./Navbar";
-import {Link} from "react-router-dom";
-import P1 from "../assets/images/P1.png"
-import P2 from "../assets/images/P2.png"
-import P3 from "../assets/images/P3.png"
-import P4 from "../assets/images/P4.png"
-
+import { Link, useHistory } from "react-router-dom";
+import P1 from "../assets/images/P1.png";
+import P2 from "../assets/images/P2.png";
+import P3 from "../assets/images/P3.png";
+import P4 from "../assets/images/P4.png";
+import sample1 from "../assets/images/sample-1.png";
+import Uploader from "../cloudinary";
+import { GlobalContext } from "./../context/reducer";
 
 function Home() {
+	const samples = new Array(3).fill(sample1);
+	const { dispatch } = useContext(GlobalContext);
+	const history = useHistory();
 
+	const scrollToEl = useRef();
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 	return (
 		<div>
 			<Navbar />
@@ -32,10 +41,21 @@ function Home() {
 								</p>
 
 								<div data-aos='fade-down' data-aos-delay='500'>
-									<Link to="/analyze" class='index-button'>
+									<Link to='/analyze' class='index-button'>
 										Upload Image ⚡️
 									</Link>
 								</div>
+								<p
+									style={{
+										marginTop: "2rem",
+										cursor: "pointer",
+										fontWeight: "bold",
+									}}
+									onClick={() =>
+										scrollToEl.current.scrollIntoView({ behavior: "smooth" })
+									}>
+									Test with Sample Images
+								</p>
 							</div>
 						</div>
 
@@ -72,22 +92,19 @@ function Home() {
 							</span>
 
 							<h2 class='mt-3'>
-							Be aware of the forged images<br /><u>in seconds</u>
+								Be aware of the forged images
+								<br />
+								<u>in seconds</u>
 							</h2>
 
 							<p class='mt-3'>
-							You can verify the morphed images by just uploading 
-it on our website or on our app.
-
-
+								You can verify the morphed images by just uploading it on our
+								website or on our app.
 							</p>
 						</div>
 					</div>
 					<div class='col-md-6'>
-						<img
-							src={P1}
-							class='img-fluid'
-						/>
+						<img src={P1} class='img-fluid' />
 					</div>
 				</div>
 			</div>
@@ -95,10 +112,7 @@ it on our website or on our app.
 			<div class='container margin-top-9'>
 				<div class='row'>
 					<div class='col-md-6'>
-						<img
-							src={P2}
-							class='img-fluid'
-						/>
+						<img src={P2} class='img-fluid' />
 					</div>
 					<div class='col-md-6 d-flex align-items-center'>
 						<div>
@@ -120,10 +134,12 @@ it on our website or on our app.
 								</svg>
 							</span>
 
-							<h2 class='mt-3'>You can reach to us through different platforms</h2>
+							<h2 class='mt-3'>
+								You can reach to us through different platforms
+							</h2>
 
 							<p class='mt-3'>
-							You can find us at on our website , app and twitter 
+								You can find us at on our website , app and twitter
 							</p>
 						</div>
 					</div>
@@ -167,17 +183,12 @@ it on our website or on our app.
 							<h2 class='mt-3'>Easy results on our Twitter Bot</h2>
 
 							<p class='mt-3'>
-							You can tag our platform on twitter
- and get immediate results 
-
+								You can tag our platform on twitter and get immediate results
 							</p>
 						</div>
 					</div>
 					<div class='col-md-6'>
-						<img
-							src={P3}
-							class='img-fluid'
-						/>
+						<img src={P3} class='img-fluid' />
 					</div>
 				</div>
 			</div>
@@ -185,10 +196,7 @@ it on our website or on our app.
 			<div class='container margin-top-9'>
 				<div class='row'>
 					<div class='col-md-6'>
-						<img
-							src={P4}
-							class='img-fluid'
-						/>
+						<img src={P4} class='img-fluid' />
 					</div>
 					<div class='col-md-6 d-flex align-items-center'>
 						<div>
@@ -213,9 +221,42 @@ it on our website or on our app.
 							<h2 class='mt-3'>Be updated about the recent forgery.</h2>
 
 							<p class='mt-3'>
-							You can get the latest news about forgery on our news section
+								You can get the latest news about forgery on our news section
 							</p>
 						</div>
+					</div>
+				</div>
+			</div>
+			<div className='col-12 sample-image-container' ref={scrollToEl}>
+				<h3 style={{textTransform:'capitalize'}}>Choose any sample image to test forged app</h3>
+				<div className="container m-0 p-0">
+					<div className="row m-0 p-0">
+						{samples.map(src => (
+					<div className="col-12 col-md-4 m-0 p-3" 
+					onClick={() => {
+							history.push("/analyze");
+							dispatch({ type: "SET_UPLOAD_LOADING" });
+							dispatch({
+								type: "SET_UPLOADED_IMAGE",
+								payload:src,
+							});
+							dispatch({ type: "SET_UPLOAD_SUCCESS" });
+						}}
+					>
+					<div class="member">
+					<img
+						src={src}
+						className="smapleImages"
+					/>
+					
+					<div class="member-info">
+                <div class="member-info-content">
+                  <h4>Select</h4>
+                </div>
+              </div>
+			  </div>
+					</div>
+				))}
 					</div>
 				</div>
 			</div>
