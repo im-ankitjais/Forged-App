@@ -20,7 +20,7 @@ function Home(props) {
 			<div class='index-container'>
 				<div class='p-0 m-0'>
 					<div class='row p-0 m-0'>
-						<div class='col col-6 p-3 m-0'>
+						<div class='col-12 col-md-6 p-3 m-0'>
 							<div class='text-left dis'>
 								<h1 class='index-header mb-4' data-aos='fade-down'>
 									Unmask Forgery,
@@ -46,7 +46,7 @@ function Home(props) {
 							</div>
 						</div>
 
-						<div class='col col-6 p-0 m-0'>
+						<div class='col-12 col-md-6 p-0 m-0'>
 							<iframe
 								class='iframe-bot'
 								src='https://my.spline.design/botcopy-479e7dd6623f438262b549ee4b31b885/'

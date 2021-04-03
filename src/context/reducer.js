@@ -40,10 +40,6 @@ const ContextProvider = ({ children }) => {
 					imageUploadLoading:false,
 					imageUploadSuccess:false,
 					cloudImage: null,
-					imageAnalyzeLoading:false,
-					imageAnalyzeSuccess:false,
-					analyzeResult: null,
-					showAlert: false,
 				};
 			default:
 				return state;
