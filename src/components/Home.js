@@ -13,7 +13,12 @@ import Uploader from "../cloudinary";
 import { GlobalContext } from "./../context/reducer";
 
 function Home() {
-	const samples = [sample1,sample2,sample3];
+	// const samples = [sample1,sample2,sample3];
+	const samples = [
+		"http://res.cloudinary.com/dhqp2dd6b/image/upload/v1617527808/image-processing/smrduxqlgbsnf7appweu.png",
+		"http://res.cloudinary.com/dhqp2dd6b/image/upload/v1617527871/image-processing/rbaz6jquy0nnl12j4ckc.jpg",
+		"http://res.cloudinary.com/dhqp2dd6b/image/upload/v1617527899/image-processing/gt6rc2lk0cgtn4bh9tjt.jpg"
+	];
 	const { dispatch } = useContext(GlobalContext);
 	const history = useHistory();
 
