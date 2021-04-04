@@ -12,7 +12,7 @@ const Preview = ({ match }) => {
 	useEffect(() => {
 		
 		dispatch({ type: "SET_UPLOAD_LOADING" });
-		setLink(`https://pbs.twimg.com/media/${twitterId}.jpg?format=jpg&name=orig`)
+		setLink(`https://pbs.twimg.com/media/${twitterId}.jpg`)
 	},[twitterId])
 	useEffect(() => {
 		if(link !=''){
