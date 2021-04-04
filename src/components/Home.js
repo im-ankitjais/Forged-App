@@ -7,11 +7,13 @@ import P2 from "../assets/images/P2.png";
 import P3 from "../assets/images/P3.png";
 import P4 from "../assets/images/P4.png";
 import sample1 from "../assets/images/sample-1.png";
+import sample2 from "../assets/images/sample-2.jpg";
+import sample3 from "../assets/images/sample-3.jpg";
 import Uploader from "../cloudinary";
 import { GlobalContext } from "./../context/reducer";
 
 function Home() {
-	const samples = new Array(3).fill(sample1);
+	const samples = [sample1,sample2,sample3];
 	const { dispatch } = useContext(GlobalContext);
 	const history = useHistory();
 
