@@ -146,11 +146,11 @@ function AnalyzeTest() {
 							{imageAnalyzeSuccess ? (
 								<div className='row m-0 p-0'>
 									<div className='col-12 resultContainer'>
-										<span className='resultLabel'>
+										{/* <span className='resultLabel'>
 											Output : Our Forged App analyzed the image and predicted
 											that <b>{result?.manipulatedCent}%</b> of the region is
 											morphed(edited) which is shown in white region.
-										</span>
+										</span> */}
 									</div>
 									<div className='col-12 col-md-4 m-0 p-0 resultContainer'>
 										<img className='areaResult' src={result?.img2} alt='' />
