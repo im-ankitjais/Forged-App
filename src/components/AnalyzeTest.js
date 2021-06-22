@@ -81,7 +81,7 @@ function AnalyzeTest() {
 				setShowResultSec(false);
 				console.log(err);
 				alert(
-					"Currently we have closed the machine learning API, due to limited amount of GPU EC2 instance avilability. We are saving it for the Demo day."
+					"Currently the API is shut down due to high sever charges. Sorry for inconvenience!"
 				);
 				dispatch({ type: "SHOW_ALERT" });
 			});
